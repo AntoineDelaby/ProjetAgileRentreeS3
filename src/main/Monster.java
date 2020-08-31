@@ -7,12 +7,17 @@ public class Monster extends Entity {
 	private String name = "M";
 	
 	private static Random rand = new Random();
-	private static int HpMin=10;
-	private static int AdMin=8;
+	
+	private static final int HPMIN=10;
+	private static final int HPMAX=20;
+	
+	private static final int ADMIN=8;
+	private static final int ADMAX=15;
+	
 	
 	
 	public Monster() {
-		super(HpMin+=rand.nextInt(11),AdMin+=rand.nextInt(8));	
+		super(HPMIN+rand.nextInt(HPMAX-HPMIN),ADMIN+rand.nextInt(ADMAX-ADMIN));	
 	}
 	
 
