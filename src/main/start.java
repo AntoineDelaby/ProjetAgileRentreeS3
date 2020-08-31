@@ -11,7 +11,10 @@ public class start {
 	
 	public static void scenario() {
 		Plateau plateau = new Plateau(15,15);
+		Monster monstre = new Monster();
 		System.out.println(plateau.toString());
+		System.out.println("\n\n"+monstre);
+		
 	}
 
 }

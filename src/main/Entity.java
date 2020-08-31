@@ -1,6 +1,6 @@
 package main;
 
-public abstract class Entity {
+public class Entity {
 	private int healthPoint;
 	private int attackDamage;
 	
@@ -9,5 +9,7 @@ public abstract class Entity {
 		this.attackDamage = ad;
 	}
 	
-	public abstract String toString();
+	public String toString() {
+		return "HP="+this.healthPoint+" AD="+this.attackDamage;
+	}
 }
