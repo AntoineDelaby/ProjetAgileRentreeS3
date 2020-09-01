@@ -45,17 +45,29 @@ Random rand = new Random();
 		Plateau map = new Plateau(15,15);
 		map.setTeam(team1, 0, rand.nextInt(15));
 		map.setTeam(team2, 14, rand.nextInt(15));
-		
 	
 		MonsterMap(map);
-		System.out.println(map.toString());
-		
+		affichage(map,team1,team2) ;
 		
 		
 	}
 	
 
 	
+	private static void affichage(Plateau p, Team t1, Team t2) {
+		String tabulation = "\t" ;
+		
+		System.out.println(p.toString());
+		System.out.print("Equipe1- "+"pv:"+t1.getHealthPoint()+ " attaque:"+t1.getAttackDamage()+tabulation) ;
+		System.out.print("Equipe2- "+"pv:"+t2.getHealthPoint()+ " attaque:"+t2.getAttackDamage()) ;
+		for (int i = 0; i < 3; i++) {
+			System.out.println();
+			System.out.print(tabulation +t1.getCharacterList().get(i).getName());
+			System.out.print("                      "+tabulation);
+			System.out.print(t2.getCharacterList().get(i).getName());
+		}
+	}
+
 	public static void MonsterMap(Plateau map) {
 		Random rand = new Random();
 		map.setTeam(new Boss(), 6+rand.nextInt(3), 6+rand.nextInt(3));

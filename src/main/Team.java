@@ -41,5 +41,10 @@ public class Team extends Entity{
 		this.token = token;
 	}
 	
+	public ArrayList<Character> getCharacterList() {
+		return characterList;
+	}
+
+	
 	
 }
