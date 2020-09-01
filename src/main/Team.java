@@ -2,30 +2,29 @@ package main;
 
 import java.util.ArrayList;
 
-public class Team {
+public class Team extends Entity{
 
-	private int healthPoint;
-	private int damage;
-	private ArrayList<Character> characterList;
 	
+	private ArrayList<Character> characterList;
 	public Team() {
+		super(0, 0) ;
 		this.characterList = new ArrayList<Character>();
 	}
 	
 	public void addCharacter(Character charac) {
 		this.characterList.add(charac);
 		charac.setTeam(this);
-		this.healthPoint += charac.getHealthPoint();
-		this.damage += charac.getDamgage();
+		super.setHealthPoint(super.getHealthPoint() + charac.getHealthPoint());
+		super.setAttackDamage(super.getAttackDamage() + charac.getDamgage()) ;
 	}
 	
 	//Faire subir des degats a la team ou heal la team 
 	public void heal(int amount) {
-		this.healthPoint = this.healthPoint + amount;
+		super.setHealthPoint(super.getHealthPoint()+ amount);
 	}
 	public void damage(int amount) {
-		this.healthPoint = this.healthPoint - amount;
-		if (this.healthPoint<0) this.healthPoint = 0; 
+		super.setHealthPoint(super.getHealthPoint() - amount);
+		if (super.getHealthPoint()<0) super.setHealthPoint(0); 
 	}
 	
 	public String toString() {
@@ -33,7 +32,9 @@ public class Team {
 		for (Character charac : this.characterList) {
 			str.append(charac.getName()+",");
 		}
-		str.append("]" + "HP:" + this.healthPoint + " DMG: " + this.damage);
+		str.append("]" + "HP:" + super.getHealthPoint() + " DMG: " + super.getAttackDamage());
 		return str.toString();
 	}
+	
+	
 }
