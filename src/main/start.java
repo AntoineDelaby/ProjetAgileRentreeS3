@@ -2,6 +2,7 @@ package main;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import main.Plateau;
 
@@ -18,7 +19,7 @@ public class start {
 	
 	public static void menu() {
 		clear();
-		System.out.println("Veuillez choisir une option du menu : \n 1 - Start \n 2 - RËgles \n 3 - CrÈdits");
+		System.out.println("Veuillez choisir une option du menu : \n 1 - Start \n 2 - RÔøΩgles \n 3 - CrÔøΩdits");
 		Scanner scan = new Scanner(System.in);
 		String answer = scan.next();
 		switch (answer) {
@@ -43,62 +44,62 @@ public class start {
 		clear();
 		System.out.println("     ~~ Donjon Baston ~~\r\n" + 
 				"\r\n" + 
-				"RËgles du jeu :\r\n" + 
+				"RÔøΩgles du jeu :\r\n" + 
 				"\r\n" + 
-				"  Deux joueurs s'affrontent dans le donjon. Chaque joueur a la possibilitÈ de choisir\r\n" + 
-				"trois personnages de classe diffÈrente (ou pas!) afin de constituer leur Èquipe.\r\n" + 
-				"Parcourez avec votre Èquipe le donjon, dÈcouvrez les diffÈrentes salles, combattez\r\n" + 
-				"les monstres que vous rencontrez, trouvez la salle du boss (il paraÓt qu'elle se situerait plus ou moins\r\n" + 
-				"au centre du donjon ...), terrassez-le, et rÈcupÈrer son trÈsor !\r\n" + 
+				"  Deux joueurs s'affrontent dans le donjon. Chaque joueur a la possibilitÔøΩ de choisir\r\n" + 
+				"trois personnages de classe diffÔøΩrente (ou pas!) afin de constituer leur ÔøΩquipe.\r\n" + 
+				"Parcourez avec votre ÔøΩquipe le donjon, dÔøΩcouvrez les diffÔøΩrentes salles, combattez\r\n" + 
+				"les monstres que vous rencontrez, trouvez la salle du boss (il paraÔøΩt qu'elle se situerait plus ou moins\r\n" + 
+				"au centre du donjon ...), terrassez-le, et rÔøΩcupÔøΩrer son trÔøΩsor !\r\n" + 
 				"\r\n" + 
-				"Le premier joueur ‡ atteindre son point de dÈpart avec le trÈsor du boss a gagnÈ.\r\n" + 
-				"Mais attention ! Les combats seront r˚des et les blessures nombreuses! Si une Èquipe perd tous ses \r\n" + 
-				"points de vie, l'Èquipe adverse s'empare de la victoire sans mÍme avoir atteint l'objectif initial.\r\n" + 
+				"Le premier joueur ÔøΩ atteindre son point de dÔøΩpart avec le trÔøΩsor du boss a gagnÔøΩ.\r\n" + 
+				"Mais attention ! Les combats seront rÔøΩdes et les blessures nombreuses! Si une ÔøΩquipe perd tous ses \r\n" + 
+				"points de vie, l'ÔøΩquipe adverse s'empare de la victoire sans mÔøΩme avoir atteint l'objectif initial.\r\n" + 
 				"\r\n" + 
-				" AventuriËres, aventuriers, ‡ vous de jouer !\r\n" + 
+				" AventuriÔøΩres, aventuriers, ÔøΩ vous de jouer !\r\n" + 
 				"\r\n" + 
 				"\r\n" + 
-				"Voici les diffÈrentes classes disponibles :\r\n" + 
+				"Voici les diffÔøΩrentes classes disponibles :\r\n" + 
 				"\r\n" + 
 				" BARBARE :\r\n" + 
 				"    - PV : 10\r\n" + 
 				"    - Attaque : 7\r\n" + 
-				"    - Passif : lors d'un combat, le barbare prend plus de coup pour ses coÈquipier et l'Èquipe\r\n" + 
-				"	       du joueur prend 10% de dÈg‚ts en moins lors de combats. RÈduisez les dÈg‚ts subis jusqu'‡ 20%\r\n" + 
-				"               si votre Èquipe est composÈe de deux barbares.\r\n" + 
+				"    - Passif : lors d'un combat, le barbare prend plus de coup pour ses coÔøΩquipier et l'ÔøΩquipe\r\n" + 
+				"	       du joueur prend 10% de dÔøΩgÔøΩts en moins lors de combats. RÔøΩduisez les dÔøΩgÔøΩts subis jusqu'ÔøΩ 20%\r\n" + 
+				"               si votre ÔøΩquipe est composÔøΩe de deux barbares.\r\n" + 
 				"\r\n" + 
 				" ARCHER :\r\n" + 
 				"    - PV : 8\r\n" + 
 				"    - Attaque : 6\r\n" + 
-				"    - Actif : l'archer est un Èclaireur dans l'‚me. Utilisez sa compÈtence pour rÈvÈler les 4 salles du donjon\r\n" + 
-				"              au nord, sud, est et ouest de la salle dans laquelle votre Èquipe se trouve.\r\n" + 
+				"    - Actif : l'archer est un ÔøΩclaireur dans l'ÔøΩme. Utilisez sa compÔøΩtence pour rÔøΩvÔøΩler les 4 salles du donjon\r\n" + 
+				"              au nord, sud, est et ouest de la salle dans laquelle votre ÔøΩquipe se trouve.\r\n" + 
 				"\r\n" + 
 				" MAGE :\r\n" + 
 				"    - PV : 6\r\n" + 
 				"    - Attaque : 8\r\n" + 
-				"    - Actif : le mage a la capacitÈ de soigner son Èquipe de ses lourdes blessures. Utilisez sa compÈtence\r\n" + 
-				"              afin de soigner votre Èquipe de 5 PV. Ce soin monte ‡ 10PV si l'Èquipe est composÈe de deux mages.\r\n" + 
+				"    - Actif : le mage a la capacitÔøΩ de soigner son ÔøΩquipe de ses lourdes blessures. Utilisez sa compÔøΩtence\r\n" + 
+				"              afin de soigner votre ÔøΩquipe de 5 PV. Ce soin monte ÔøΩ 10PV si l'ÔøΩquipe est composÔøΩe de deux mages.\r\n" + 
 				"\r\n" + 
 				" RANGER :\r\n" + 
 				"    - PV : 7\r\n" + 
 				"    - Attaque : 6\r\n" + 
-				"    - Passif : le ranger se sent pousser des ailes en combat d'Èquipe ! Ses dÈg‚ts d'attaque augmente lÈgËrement\r\n" + 
-				"	       et procurent ‡ l'Èquipe un bonus de points d'attaque de 3. Obtenez un bonus maximum de 6\r\n" + 
-				"               points d'attaque si votre Èquipe est composÈe de deux rangers.\r\n" + 
+				"    - Passif : le ranger se sent pousser des ailes en combat d'ÔøΩquipe ! Ses dÔøΩgÔøΩts d'attaque augmente lÔøΩgÔøΩrement\r\n" + 
+				"	       et procurent ÔøΩ l'ÔøΩquipe un bonus de points d'attaque de 3. Obtenez un bonus maximum de 6\r\n" + 
+				"               points d'attaque si votre ÔøΩquipe est composÔøΩe de deux rangers.\r\n" + 
 				"\r\n" + 
 				" VOLEUR :\r\n" + 
 				"    - PV : 4\r\n" + 
 				"    - Attaque : 5\r\n" + 
-				"    - Actif : lorsque le voleur est choisi, il a la capacitÈ de faire avancer son Èquipe d'une case de plus,\r\n" + 
-				" 	      soit deux cases en un tour. Avec deux voleur dans votre Èquipe, le bonus peut aller jusqu'‡ deux\r\n" + 
-				"              cases en plus lors du dÈplacement de l'Èquipe.\r\n" + 
+				"    - Actif : lorsque le voleur est choisi, il a la capacitÔøΩ de faire avancer son ÔøΩquipe d'une case de plus,\r\n" + 
+				" 	      soit deux cases en un tour. Avec deux voleur dans votre ÔøΩquipe, le bonus peut aller jusqu'ÔøΩ deux\r\n" + 
+				"              cases en plus lors du dÔøΩplacement de l'ÔøΩquipe.\r\n" + 
 				"\r\n" + 
 				"Attention ! Lors du tour d'un joueur, celui-ci a le choix entre AVANCER, ou UTILISER UNE COMPETENCE,\\\r\n" + 
 				"mais pas les deux. ");
 		System.out.println("\n\n\n Appuyez sur M pour retourner au Menu !");
 		Scanner scan = new Scanner(System.in);
 		String answer = scan.next();
-		if (answer.equals("m")) {
+		if (answer.equalsIgnoreCase("m")) {
 			menu();
 		}else{
 			regles();
@@ -107,10 +108,10 @@ public class start {
 	
 	public static void credits() {
 		clear();
-		System.out.println("CrÈdits : \n Antoine DELABY \n Charles DESBIENS \n Ayoub LAHOUAICHRI \n Corentin LEBLEU \n Maxime SOUDANT \n\n\n Appuyez sur M pour retourner au Menu !");
+		System.out.println("CrÔøΩdits : \n Antoine DELABY \n Charles DESBIENS \n Ayoub LAHOUAICHRI \n Corentin LEBLEU \n Maxime SOUDANT \n\n\n Appuyez sur M pour retourner au Menu !");
 		Scanner scan = new Scanner(System.in);
 		String answer = scan.next();
-		if (answer.equals("m")) {
+		if (answer.equalsIgnoreCase("m")) {
 			menu();
 		}else{
 			credits();
@@ -229,11 +230,34 @@ public class start {
 			break;
 		}
 		if(Plateau.aCombatre != null) {
-			while(Plateau.aCombatre.getHealthPoint()>=0 && team.getHealthPoint()>=0) {
+			System.out.println("Vous rencontrez un ennemie avec "+Plateau.aCombatre.getAttackDamage()+" de d√©g√¢ts et "+Plateau.aCombatre.getHealthPoint()+" hp.");
+			try {
+				TimeUnit.SECONDS.sleep(5) ;
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
+			while(Plateau.aCombatre.getHealthPoint()>0 && team.getHealthPoint()>0) {
 				Plateau.aCombatre.setHealthPoint(Plateau.aCombatre.getHealthPoint()-team.getAttackDamage());
-				if (Plateau.aCombatre.getHealthPoint()>=0) {
-					team.setHealthPoint(team.getHealthPoint()-Plateau.aCombatre.getAttackDamage());
+				System.out.println("Vous infligez "+team.getAttackDamage()+ " de d√©g√¢ts √† l'ennemie...");
+				try {
+					TimeUnit.SECONDS.sleep(5) ;
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
+				if (Plateau.aCombatre.getHealthPoint()>0) {
+					team.setHealthPoint(team.getHealthPoint()-Plateau.aCombatre.getAttackDamage());
+					System.out.println("L'ennemie vous inflige"+team.getAttackDamage()+ " de d√©g√¢ts...");
+				}else {
+					System.out.println("Bravo, l'ennemie a √©t√© vaincu !");
+				}
+				try {
+					TimeUnit.SECONDS.sleep(5) ;
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			if (team.getHealthPoint()<=0) {
+				System.out.println("A√Øe, l'ennemie vous a tu√© !");
 			}
 		}
 	}
