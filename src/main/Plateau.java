@@ -49,6 +49,10 @@ public class Plateau {
 		this.plateau[x][y] = t ;
 	}
 	
+	public Entity getCase(int x, int y) {
+		return this.plateau[x][y];
+	}
+	
 	
 	
 }

@@ -34,7 +34,7 @@ public class start {
 	
 	
 	public static void partie() {
-		Random rand = new Random();
+Random rand = new Random();
 		
 		Team team1 = new Team();
 		Team team2 = new Team();
@@ -47,11 +47,29 @@ public class start {
 		map.setTeam(team2, 14, rand.nextInt(15));
 		
 	
-		map.setTeam(new Boss(), 6+rand.nextInt(3), 6+rand.nextInt(3));
-		
+		MonsterMap(map);
 		
 		System.out.println(map.toString());
 		
+		
+		
+	}
+	
+
+	
+	public static void MonsterMap(Plateau map) {
+		Random rand = new Random();
+		map.setTeam(new Boss(), 6+rand.nextInt(3), 6+rand.nextInt(3));
+		
+		for (int i = 0; i<15; i++) {
+			for (int j=0;j<15;j++) {
+				if (map.getCase(i, j)==null) {
+					if (rand.nextInt(5)==3) {
+						map.setTeam(new Monster(), i, j);
+					}
+				}
+			}
+		}
 	}
 	
 	public static void creationDesTeam(Team team) {
