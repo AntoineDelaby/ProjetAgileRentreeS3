@@ -19,4 +19,5 @@ public class Ranger extends Character{
 	public void action() {
 		
 	}
+	//ff
 }
