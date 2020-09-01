@@ -16,11 +16,6 @@ public class Plateau {
 	@Override
 	public String toString() {
 		String tmp="";
-		
-	
-		
-		
-		
 		for (int i=0; i<this.length; i++) {
 			tmp+="-";
 			for (int z=0;z<this.length;z++) {
@@ -45,14 +40,25 @@ public class Plateau {
 	}
 
 	
-	public void setTeam(Entity t, int x, int y) {
+	public void setTeam(Team t, int x, int y) {
 		this.plateau[x][y] = t ;
+		t.setCoordinate(new Coordinate(x, y));
+	}
+	public void setTeam(Team t, Coordinate coo) {
+		this.setTeam(t, coo.getX(), coo.getY());
 	}
 	
-	public Entity getCase(int x, int y) {
-		return this.plateau[x][y];
+	public boolean move(Team team, Direction dir) {
+		Coordinate tmp = team.getCoordinate();
+		
+		Coordinate update = tmp.update(dir);
+		if ( (update.getX()<0) || (update.getY()<0) || 
+				(update.getX()>=this.length) || (update.getY()>=this.width)) {
+			return false;
+		}
+		this.plateau[tmp.getX()][tmp.getY()] = null;
+		this.setTeam(team, update);
+		return true;
 	}
-	
-	
 	
 }

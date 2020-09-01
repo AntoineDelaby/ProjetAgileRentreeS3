@@ -3,6 +3,9 @@ package main;
 import java.util.ArrayList;
 
 public class Team extends Entity{
+	
+	private Coordinate coo;
+	
 	private String token;
 	private static int nombreEquipe= 0 ;
 	private ArrayList<Character> characterList;
@@ -12,7 +15,7 @@ public class Team extends Entity{
 		this.characterList = new ArrayList<Character>();
 		nombreEquipe++ ;
 		this.token = ""+ nombreEquipe ;
-
+		this.coo = new Coordinate(0, 0);
 	}
 	
 	public void addCharacter(Character charac) {
@@ -38,6 +41,13 @@ public class Team extends Entity{
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+	
+	public void setCoordinate(Coordinate coo) {
+		this.coo = coo;
+	}
+	public Coordinate getCoordinate() {
+		return this.coo;
 	}
 	
 	
