@@ -14,6 +14,8 @@ public class Monster extends Entity {
 	private static final int ADMIN=8;
 	private static final int ADMAX=15;
 	
+	private boolean hide = true;
+	
 	
 	
 	public Monster() {
@@ -31,6 +33,18 @@ public class Monster extends Entity {
 	@Override
 	public String toString() {
 		return name;
+	}
+
+
+
+	public boolean isHide() {
+		return hide;
+	}
+
+
+
+	public void setHide(boolean hide) {
+		this.hide = hide;
 	}
 	
 	
