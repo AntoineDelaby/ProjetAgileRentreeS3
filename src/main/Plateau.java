@@ -9,8 +9,6 @@ public class Plateau {
 		this.length=length;
 		this.width=width;
 		this.plateau=new Entity[this.length][this.width];
-		
-		
 	}
 
 	@Override
