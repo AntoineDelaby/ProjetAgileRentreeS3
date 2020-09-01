@@ -3,12 +3,16 @@ package main;
 import java.util.ArrayList;
 
 public class Team extends Entity{
-
-	
+	private String token;
+	private static int nombreEquipe= 0 ;
 	private ArrayList<Character> characterList;
+	
 	public Team() {
 		super(0, 0) ;
 		this.characterList = new ArrayList<Character>();
+		nombreEquipe++ ;
+		this.token = ""+ nombreEquipe ;
+
 	}
 	
 	public void addCharacter(Character charac) {
@@ -28,12 +32,12 @@ public class Team extends Entity{
 	}
 	
 	public String toString() {
-		StringBuilder str = new StringBuilder("[");
-		for (Character charac : this.characterList) {
-			str.append(charac.getName()+",");
-		}
-		str.append("]" + "HP:" + super.getHealthPoint() + " DMG: " + super.getAttackDamage());
-		return str.toString();
+		return token;
+	}
+	
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 	
 	

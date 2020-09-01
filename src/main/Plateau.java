@@ -3,39 +3,52 @@ package main;
 public class Plateau {
 	private int length;
 	private int width;
-	private String[] []plateau;
+	private Entity[][]plateau;
 	
 	public Plateau (int length, int width) {
 		this.length=length;
 		this.width=width;
-		this.plateau=new String[this.length][this.width];
+		this.plateau=new Entity[this.length][this.width];
 		
-		for (int i=0; i<this.length; i++) {
-			for (int j=0; j<this.width; j++) {
-				plateau[i][j]=" ";
-			}
-		}
+		
 	}
 
 	@Override
 	public String toString() {
-		String plateau="";
-		for (int i=0;i<this.length;i++) {
-			plateau+="--";
-		}
-		plateau+="\n";
+		String tmp="";
+		
+	
+		
+		
+		
 		for (int i=0; i<this.length; i++) {
-			plateau+="|";
-			for (int j=0; j<this.width; j++) {
-				plateau+=this.plateau[i][j]+"|";
+			tmp+="-";
+			for (int z=0;z<this.length;z++) {
+				tmp+="---";
 			}
-			plateau+="\n";
+			tmp+="\n";
+			tmp+="|";
+			for (int j=0; j<this.width; j++) {
+				if(this.plateau[i][j]==null) {
+					tmp+="  ";
+				}else{
+					tmp+=this.plateau[i][j].toString() + " ";
+				}
+				tmp+="|";
+			}
+			tmp+="\n";
 		}
 		for (int i=0;i<this.length;i++) {
-			plateau+="--";
+			tmp+="---";
 		}
-		return plateau;
+		return tmp+"-";
 	}
+
+	
+	public void setTeam(Team t, int x, int y) {
+		this.plateau[x][y] = t ;
+	}
+	
 	
 	
 }

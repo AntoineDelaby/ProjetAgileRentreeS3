@@ -30,7 +30,7 @@ public class Monster extends Entity {
 
 	@Override
 	public String toString() {
-		return ""+this.name+" : "+super.toString();
+		return name;
 	}
 	
 	
