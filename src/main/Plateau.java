@@ -6,9 +6,9 @@ import main.Direction;
 import main.Team;
 
 public class Plateau {
-	private int length;
-	private int width;
-	private Entity[][]plateau;
+	private static int length;
+	private static int width;
+	private static Entity[][]plateau;
 	
 	public Plateau (int length, int width) {
 		this.length=length;
@@ -43,35 +43,36 @@ public class Plateau {
 	}
 
 	
-	public void setTeam(Entity t, int x, int y) {
-		this.plateau[x][y] = t ;
+	public static void setTeam(Entity t, int x, int y) {
+		plateau[x][y] = t ;
 		t.setCoordinate(new Coordinate(x, y));
 	}
-	public void setTeam(Entity t, Coordinate coo) {
-		this.setTeam(t, coo.getX(), coo.getY());
+	public static void setTeam(Entity t, Coordinate coo) {
+		setTeam(t, coo.getX(), coo.getY());
 	}
 	
-	public boolean move(Team team, Direction dir) {
+	public static boolean move(Team team, Direction dir) {
 		Coordinate tmp = team.getCoordinate();
 		
 		Coordinate update = tmp.update(dir);
 		if ( (update.getX()<0) || (update.getY()<0) || 
-				(update.getX()>=this.length) || (update.getY()>=this.width)) {
+				(update.getX()>=length) || (update.getY()>=width)) {
 			return false;
 		}
-		this.plateau[tmp.getX()][tmp.getY()] = null;
-		this.setTeam(team, update);
+		plateau[tmp.getX()][tmp.getY()] = null;
+		setTeam(team, update);
 		return true;
 	}
 	
 	public Entity getCase(int x, int y) {
-		return this.plateau[x][y];
+		return plateau[x][y];
 	}
 	
-	public void askMove(Team team) {
+	public static Direction askMove(Team team) {
 		Scanner scan = new Scanner(System.in);
 		Direction dir = null;
 		do {
+			System.out.println("Dans quelle direction voulez vous vous déplacer ?");
 			System.out.println("N - S - E - O");
 			String res = scan.nextLine();
 			dir = null;
@@ -90,7 +91,9 @@ public class Plateau {
 				break;
 
 			}
-		}while ((dir==null) || (!this.move(team, dir)));
+		}while ((dir==null) || (!move(team, dir)));
+		
+		return dir;
 	}
 	
 }

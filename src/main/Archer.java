@@ -13,9 +13,8 @@ public class Archer extends Character{
 	}
 
 	@Override
-	//FAIRE DES DEGATS SUR PLUSIEURS CASES DEVANT
 	public void action() {
-		//TODO super.team.makeDamage ou je sais pas quoi
+		
 	}
 	
 }
