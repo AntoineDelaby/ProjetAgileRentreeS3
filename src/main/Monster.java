@@ -20,6 +20,13 @@ public class Monster extends Entity {
 		super(HPMIN+rand.nextInt(HPMAX-HPMIN),ADMIN+rand.nextInt(ADMAX-ADMIN));	
 	}
 	
+	
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 
 	@Override
 	public String toString() {
