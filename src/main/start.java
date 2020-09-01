@@ -49,11 +49,11 @@ public class start {
 		affichage(map, team1, team2);
 		int vainqueur = 0 ;
 		while(vainqueur == 0) {
-			play(team1);
+			play(map, team1);
 			vainqueur = verification(team1,team2) ;
 			affichage(map, team1, team2);
 			if (vainqueur != 0)	break; 
-			play(team2);
+			play(map, team2);
 			affichage(map, team1, team2);
 			vainqueur = verification(team1,team2) ;
 		}
@@ -75,9 +75,43 @@ public class start {
 	}
 
 
-	public static void play(Team team) {
-		System.out.println("Choisissez votre action :");
+	public static void play(Plateau map, Team team) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("\n Choisissez votre action :");
+		System.out.println("1-Deplacement \n 2-Action ");
+		String answer=scan.next();
+
+		while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>2) {
+			System.out.println("Choix non disponible, choisis parmis : \n 1-Deplacement \n 2-Action ");
+			answer = scan.next();
+		}
 		
+		switch (answer) {
+		case "1":
+			team.getCoordinate().update(map.askMove(team));
+			break;
+			
+		case "2":
+			for(int i = 0; i < 3; i++) {
+				System.out.println((i+1) + "-pouvoir " + team.getCharacterList().get(i));
+			}
+			answer=scan.next();
+
+			while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>3) {
+				System.out.println("Choix non disponible.");
+				answer = scan.next();
+			}
+			team.getCharacterList().get(Integer.parseInt(answer)-1).action();
+			break;
+		}
+		if(Plateau.aCombatre != null) {
+			while(Plateau.aCombatre.getHealthPoint()>=0 && team.getHealthPoint()>=0) {
+				Plateau.aCombatre.setHealthPoint(Plateau.aCombatre.getHealthPoint()-team.getAttackDamage());
+				if (Plateau.aCombatre.getHealthPoint()>=0) {
+					team.setHealthPoint(team.getHealthPoint()-Plateau.aCombatre.getAttackDamage());
+				}
+			}
+		}
 	}
 	
 
