@@ -45,7 +45,7 @@ public class Plateau {
 	}
 
 	
-	public void setTeam(Team t, int x, int y) {
+	public void setTeam(Entity t, int x, int y) {
 		this.plateau[x][y] = t ;
 	}
 	

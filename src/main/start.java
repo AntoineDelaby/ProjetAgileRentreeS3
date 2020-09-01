@@ -32,6 +32,7 @@ public class start {
 	*/
 	}
 	
+	
 	public static void partie() {
 		Random rand = new Random();
 		
@@ -44,6 +45,10 @@ public class start {
 		Plateau map = new Plateau(15,15);
 		map.setTeam(team1, 0, rand.nextInt(15));
 		map.setTeam(team2, 14, rand.nextInt(15));
+		
+	
+		map.setTeam(new Boss(), 6+rand.nextInt(3), 6+rand.nextInt(3));
+		
 		
 		System.out.println(map.toString());
 		
