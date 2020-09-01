@@ -92,6 +92,7 @@ Random rand = new Random();
 				System.out.println("Choix non disponible, choisis parmis : \n 1-Archer \n 2-Mage \n 3-Voleur");
 				answer = scan.next();
 			}
+			
 			switch (answer) {
 			case "1":
 				team.addCharacter(new Archer());
