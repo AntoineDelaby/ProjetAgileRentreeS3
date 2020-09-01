@@ -1,5 +1,10 @@
 package main;
 
+import java.util.Scanner;
+
+import main.Direction;
+import main.Team;
+
 public class Plateau {
 	private int length;
 	private int width;
@@ -61,6 +66,31 @@ public class Plateau {
 	
 	public Entity getCase(int x, int y) {
 		return this.plateau[x][y];
+	}
+	
+	public void askMove(Team team) {
+		Scanner scan = new Scanner(System.in);
+		Direction dir = null;
+		do {
+			System.out.println("N - S - E - O");
+			String res = scan.nextLine();
+			dir = null;
+			switch (res) {
+			case "N":
+				dir = Direction.NORTH;
+				break;
+			case "S":
+				dir = Direction.SOUTH;
+				break;
+			case "E":
+				dir = Direction.EAST;
+				break;
+			case "O":
+				dir = Direction.WEST;
+				break;
+
+			}
+		}while ((dir==null) || (!this.move(team, dir)));
 	}
 	
 }
