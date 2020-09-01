@@ -4,6 +4,7 @@ public class Mage extends Character{
 	
 	public static final int HP = 10;
 	public static final int DMG = 10;
+	public static final boolean PASSIF = false;
 	
 	public static final int HEAL = 10;
 	
@@ -12,8 +13,11 @@ public class Mage extends Character{
 		super.name = "MAGE";
 	}
 
-	@Override
-	//HEAL LA TEAM
+	public boolean isPassif() {
+		return Mage.PASSIF;
+	}
+	
+
 	public void action() {
 		super.team.heal(Mage.HEAL);
 	}
