@@ -11,26 +11,26 @@ public class Plateau {
 	private static Entity[][]plateau;
 	
 	public Plateau (int length, int width) {
-		this.length=length;
-		this.width=width;
-		this.plateau=new Entity[this.length][this.width];
+		Plateau.length=length;
+		Plateau.width=width;
+		plateau=new Entity[length][width];
 	}
 
 	@Override
 	public String toString() {
 		String tmp="";
-		for (int i=0; i<this.length; i++) {
+		for (int i=0; i<length; i++) {
 			tmp+="-";
-			for (int z=0;z<this.length;z++) {
+			for (int z=0;z<length;z++) {
 				tmp+="---";
 			}
 			tmp+="\n";
 			tmp+="|";
 			for (int j=0; j<this.width; j++) {
-				if(this.plateau[i][j]==null||this.plateau[i][j].isHide()) {
+				if(plateau[i][j]==null||plateau[i][j].isHide()) {
 					tmp+="  ";
 				}else{
-					tmp+=this.plateau[i][j].toString() + " ";
+					tmp+=plateau[i][j].toString() + " ";
 				}
 				tmp+="|";
 			}
