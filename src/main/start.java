@@ -8,33 +8,14 @@ import main.Plateau;
 public class start {
 
 	public static void main(String[] args) {
-		//scenarioTest();
+		
 		partie();
 
 	}
 	
-	public static void scenarioTest() {
-		Plateau map = new Plateau(15,15);
-		Team t = new Team() ;
-		map.setTeam(t, 0, 0);
-		System.out.println(map.toString());
-
-		//Monster monstre = new Monster();
-		//System.out.println("\n\n"+monstre);
-		
-		/*
-		Team t = new Team() ;
-		System.out.println(t);
-		t.addCharacter(new Voleur());
-		t.addCharacter(new Mage());
-		t.addCharacter(new Archer());
-		System.out.println(t);
-	*/
-	}
-	
 	
 	public static void partie() {
-Random rand = new Random();
+		Random rand = new Random();
 		
 		Team team1 = new Team();
 		Team team2 = new Team();
@@ -47,8 +28,24 @@ Random rand = new Random();
 		map.setTeam(team2, 14, rand.nextInt(15));
 	
 		MonsterMap(map);
-		affichage(map,team1,team2) ;
 		
+		deroulement(map, team1, team2);
+		
+	}
+	
+	public static void deroulement(Plateau map, Team team1, Team team2) {
+		boolean winner = false;
+		affichage(map, team1, team2);
+		while(team1.getHealthPoint() > 0 && team2.getHealthPoint() > 0 && winner == false) {
+			play(team1);
+			affichage(map, team1, team2);
+			play(team2);
+			affichage(map, team1, team2);
+		}
+		affichage(map, team1, team2);
+	}
+	
+	public static void play(Team team) {
 		
 	}
 	
