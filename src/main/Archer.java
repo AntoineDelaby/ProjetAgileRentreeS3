@@ -17,7 +17,7 @@ public class Archer extends Character{
 		return Archer.PASSIF;
 	}
 	
-	@Override
+
 	public void action() {
 		
 	}

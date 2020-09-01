@@ -17,7 +17,7 @@ public class Mage extends Character{
 		return Mage.PASSIF;
 	}
 	
-	@Override
+
 	public void action() {
 		super.team.heal(Mage.HEAL);
 	}

@@ -18,7 +18,6 @@ public abstract class Character {
 	
 	public abstract void action();
 	public abstract boolean isPassif();
-
 	//======
 	
 	public int getHealthPoint() {

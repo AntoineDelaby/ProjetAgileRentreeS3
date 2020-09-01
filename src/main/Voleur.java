@@ -14,8 +14,7 @@ public class Voleur extends Character{
 	public boolean isPassif() {
 		return Mage.PASSIF;
 	}
-	
-	@Override
+
 	public void action() {
 		Direction dir = Plateau.askMove(super.team);
 		Plateau.move(super.team, dir);

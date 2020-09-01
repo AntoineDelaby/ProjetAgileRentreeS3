@@ -15,7 +15,7 @@ public class Barbare extends Character{
 		return Barbare.PASSIF;
 	}
 	
-	@Override
+
 	public void action() {
 		
 	}
