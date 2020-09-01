@@ -48,7 +48,6 @@ Random rand = new Random();
 		
 	
 		MonsterMap(map);
-		
 		System.out.println(map.toString());
 		
 		
