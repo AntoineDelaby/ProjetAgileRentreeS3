@@ -38,11 +38,11 @@ public class Plateau {
 	}
 
 	
-	public void setTeam(Team t, int x, int y) {
+	public void setTeam(Entity t, int x, int y) {
 		this.plateau[x][y] = t ;
 		t.setCoordinate(new Coordinate(x, y));
 	}
-	public void setTeam(Team t, Coordinate coo) {
+	public void setTeam(Entity t, Coordinate coo) {
 		this.setTeam(t, coo.getX(), coo.getY());
 	}
 	
@@ -57,6 +57,10 @@ public class Plateau {
 		this.plateau[tmp.getX()][tmp.getY()] = null;
 		this.setTeam(team, update);
 		return true;
+	}
+	
+	public Entity getCase(int x, int y) {
+		return this.plateau[x][y];
 	}
 	
 }

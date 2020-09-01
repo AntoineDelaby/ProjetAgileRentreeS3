@@ -4,6 +4,8 @@ public class Entity {
 	private int healthPoint;
 	private int attackDamage;
 	
+	protected Coordinate coo;
+	
 	public Entity(int hp, int ad) {
 		this.healthPoint = hp;
 		this.attackDamage = ad;
@@ -27,4 +29,12 @@ public class Entity {
 	public void setAttackDamage(int attackDamage) {
 		this.attackDamage = attackDamage;
 	}
+	
+	public void setCoordinate(Coordinate coo) {
+		this.coo = coo;
+	}
+	public Coordinate getCoordinate() {
+		return this.coo;
+	}
+	
 }
