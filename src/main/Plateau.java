@@ -22,7 +22,7 @@ public class Plateau {
 			tmp+="\n";
 			tmp+="|";
 			for (int j=0; j<this.width; j++) {
-				if(this.plateau[i][j]==null) {
+				if(this.plateau[i][j]==null||this.plateau[i][j].isHide()) {
 					tmp+="  ";
 				}else{
 					tmp+=this.plateau[i][j].toString() + " ";

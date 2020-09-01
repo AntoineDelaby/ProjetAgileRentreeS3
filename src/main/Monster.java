@@ -20,6 +20,7 @@ public class Monster extends Entity {
 	
 	public Monster() {
 		super(HPMIN+rand.nextInt(HPMAX-HPMIN),ADMIN+rand.nextInt(ADMAX-ADMIN));	
+		super.setHide(true);
 	}
 	
 	

@@ -4,6 +4,8 @@ public class Entity {
 	private int healthPoint;
 	private int attackDamage;
 	
+	private boolean hide = false;
+	
 	protected Coordinate coo;
 	
 	public Entity(int hp, int ad) {
@@ -36,5 +38,14 @@ public class Entity {
 	public Coordinate getCoordinate() {
 		return this.coo;
 	}
+
+	public boolean isHide() {
+		return hide;
+	}
+
+	public void setHide(boolean hide) {
+		this.hide = hide;
+	}
+	
 	
 }
