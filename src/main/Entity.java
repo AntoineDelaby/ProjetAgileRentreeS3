@@ -12,4 +12,19 @@ public class Entity {
 	public String toString() {
 		return "HP="+this.healthPoint+" AD="+this.attackDamage;
 	}
+	public int getHealthPoint() {
+		return healthPoint;
+	}
+
+	public void setHealthPoint(int healthPoint) {
+		this.healthPoint = healthPoint;
+	}
+
+	public int getAttackDamage() {
+		return attackDamage;
+	}
+
+	public void setAttackDamage(int attackDamage) {
+		this.attackDamage = attackDamage;
+	}
 }
