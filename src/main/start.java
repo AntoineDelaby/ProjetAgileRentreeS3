@@ -7,6 +7,9 @@ import main.Plateau;
 
 public class start {
 
+	static Coordinate spawnT1 ;
+	static Coordinate spawnT2 ;
+	
 	public static void main(String[] args) {
 		
 		partie();
@@ -26,27 +29,55 @@ public class start {
 		Plateau map = new Plateau(15,15);
 		map.setTeam(team1, 0, rand.nextInt(15));
 		map.setTeam(team2, 14, rand.nextInt(15));
-	
+		spawnT1 = team1.getCoordinate() ;
+		spawnT2 = team2.getCoordinate() ;
+		
 		MonsterMap(map);
 		
 		deroulement(map, team1, team2);
 		
 	}
 	
+	private static int verification(Team team1, Team team2) {
+		if(team1.getHealthPoint() <= 0) return 2;
+		if(team2.getHealthPoint() <= 0) return 1;
+		if(team1.getCoordinate().equals(spawnT1) && team1.isTresorRecupere()) return 1 ;
+		if(team2.getCoordinate().equals(spawnT2) && team2.isTresorRecupere()) return 2 ;
+		return 0;
+	}
 	public static void deroulement(Plateau map, Team team1, Team team2) {
-		boolean winner = false;
 		affichage(map, team1, team2);
-		while(team1.getHealthPoint() > 0 && team2.getHealthPoint() > 0 && winner == false) {
+		int vainqueur = 0 ;
+		while(vainqueur == 0) {
 			play(team1);
+			vainqueur = verification(team1,team2) ;
 			affichage(map, team1, team2);
+			if (vainqueur != 0)	break; 
 			play(team2);
 			affichage(map, team1, team2);
+			vainqueur = verification(team1,team2) ;
 		}
 		affichage(map, team1, team2);
+		messageDeFin(vainqueur) ;
+
 	}
 	
+	private static void messageDeFin(int vainqueur) {
+		switch (vainqueur) {
+		case 1:
+			System.out.println("Le vainqueur est le joueur 1.\n Felicitation!!!");
+			break;
+		case 2:
+			System.out.println("Le vainqueur est le joueur 2.\n Felicitation!!!");
+			break;
+		}
+		
+	}
+
+
 	public static void play(Team team) {
-		//todo
+		System.out.println("Choisissez votre action :");
+		
 	}
 	
 

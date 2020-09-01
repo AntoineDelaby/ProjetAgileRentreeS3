@@ -7,6 +7,7 @@ public class Team extends Entity{
 	private String token;
 	private static int nombreEquipe= 0 ;
 	private ArrayList<Character> characterList;
+	private boolean tresorRecupere ;
 	
 	public Team() {
 		super(0, 0) ;
@@ -14,6 +15,7 @@ public class Team extends Entity{
 		nombreEquipe++ ;
 		this.token = ""+ nombreEquipe ;
 		this.coo = new Coordinate(0, 0);
+		setTresorRecupere(false) ;
 	}
 	
 	public void addCharacter(Character charac) {
@@ -43,6 +45,14 @@ public class Team extends Entity{
 	
 	public ArrayList<Character> getCharacterList() {
 		return characterList;
+	}
+
+	public boolean isTresorRecupere() {
+		return tresorRecupere;
+	}
+
+	public void setTresorRecupere(boolean tresorRecupere) {
+		this.tresorRecupere = tresorRecupere;
 	}
 
 	
