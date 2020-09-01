@@ -75,7 +75,12 @@ Random rand = new Random();
 		Scanner scan=new Scanner(System.in);
 		for (int i=0; i<3; i++) {
 			System.out.println("Joueur "+team.toString()+", veuillez choisir votre classe "+(i+1)+" parmis : \n 1-Archer \n 2-Mage \n 3-Voleur");
-			switch (scan.next()) {
+			String answer=scan.next();
+			while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>3) {
+				System.out.println("Choix non disponible, choisis parmis : \n 1-Archer \n 2-Mage \n 3-Voleur");
+				answer = scan.next();
+			}
+			switch (answer) {
 			case "1":
 				team.addCharacter(new Archer());
 				break;
