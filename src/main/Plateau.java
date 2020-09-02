@@ -10,10 +10,19 @@ public class Plateau {
 	private static int width;
 	private static Entity[][]plateau;
 	
+	public static Entity aCombatre ;
+	
 	public Plateau (int length, int width) {
+
+		this.length=length;
+		this.width=width;
+		this.plateau=new Entity[this.length][this.width];
+		aCombatre = null ;
+
 		Plateau.length=length;
 		Plateau.width=width;
 		plateau=new Entity[length][width];
+//>>>>>>> branch 'master' of https://gitlab.univ-lille.fr/2020-S3-projet/groupe-5.git
 	}
 
 	@Override
@@ -52,13 +61,18 @@ public class Plateau {
 	}
 	
 	public static boolean move(Team team, Direction dir) {
+		aCombatre = null ;
 		Coordinate tmp = team.getCoordinate();
 		
 		Coordinate update = tmp.update(dir);
+		
 		if ( (update.getX()<0) || (update.getY()<0) || 
 				(update.getX()>=length) || (update.getY()>=width)) {
 			return false;
 		}
+		
+		aCombatre = plateau[update.getX()][update.getY()] ;
+		
 		plateau[tmp.getX()][tmp.getY()] = null;
 		setTeam(team, update);
 		return true;
