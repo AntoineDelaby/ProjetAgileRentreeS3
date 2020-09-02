@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Team extends Entity{
 	
-	private static final int MAX_HP = 30;
+	private int max_hp;
 	
 	private String token;
 	private static int nombreEquipe= 0 ;
@@ -13,6 +13,7 @@ public class Team extends Entity{
 	
 	public Team() {
 		super(0, 0) ;
+		this.max_hp = 0;
 		this.characterList = new ArrayList<Character>();
 		nombreEquipe++ ;
 		this.token = ""+ nombreEquipe ;
@@ -25,14 +26,15 @@ public class Team extends Entity{
 		charac.setTeam(this);
 		super.setHealthPoint(super.getHealthPoint() + charac.getHealthPoint());
 		super.setAttackDamage(super.getAttackDamage() + charac.getDamgage()) ;
+		this.max_hp = this.max_hp + charac.getHealthPoint();
 	}
 	
 	//Faire subir des degats a la team ou heal la team 
 	public void heal(int amount) {
-		if ((super.getHealthPoint()+amount)<Team.MAX_HP) {
+		if ((super.getHealthPoint()+amount)<=this.max_hp) {
 			super.setHealthPoint(super.getHealthPoint()+ amount);
 		}else {
-			super.setHealthPoint(Team.MAX_HP);
+			super.setHealthPoint(this.max_hp);
 		}
 	}
 	public void damage(int amount) {
