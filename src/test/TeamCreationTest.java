@@ -50,5 +50,5 @@ public class TeamCreationTest {
 	public void test_rightADs() {
 		assertEquals(21,t1.getAttackDamage());
 		assertEquals(19,t2.getAttackDamage());
-	}
+	} 
 }
