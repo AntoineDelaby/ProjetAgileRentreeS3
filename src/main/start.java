@@ -217,12 +217,18 @@ public class start {
 			break;
 			
 		case "2":
+			
 			for(int i = 0; i < 3; i++) {
-				System.out.println((i+1) + "-pouvoir " + team.getCharacterList().get(i).getName());
+				if (team.getCharacterList().get(i).isPassif()) {
+					System.out.println((i+1) + "-pouvoir passsif") ;
+				}else {
+					System.out.println((i+1) + "-pouvoir " + team.getCharacterList().get(i).getName());
+				}
+					
 			}
 			answer=scan.next();
 
-			while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>3) {
+			while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>3 || team.getCharacterList().get(Integer.parseInt(answer)).isPassif()) {
 				System.out.println("Choix non disponible.");
 				answer = scan.next();
 			}
@@ -308,10 +314,10 @@ public class start {
 		Scanner scan=new Scanner(System.in);
 		for (int i=0; i<3; i++) {
 			clear();
-			System.out.println("Joueur "+team.toString()+", veuillez choisir votre classe "+(i+1)+" parmis : \n 1-Archer \n 2-Mage \n 3-Voleur");
+			System.out.println("Joueur "+team.toString()+", veuillez choisir votre classe "+(i+1)+" parmis : \n 1-Archer \n 2-Mage \n 3-Voleur \n 4-Barbare \n 5-Ranger");
 			String answer=scan.next();
-			while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>3) {
-				System.out.println("Choix non disponible, choisis parmis : \n 1-Archer \n 2-Mage \n 3-Voleur");
+			while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>5) {
+				System.out.println("Choix non disponible, choisis parmis : \n 1-Archer \n 2-Mage \n 3-Voleur \n 4-Barbare \n 5-Ranger");
 				answer = scan.next();
 			}
 			
@@ -326,6 +332,12 @@ public class start {
 				
 			case "3":
 				team.addCharacter(new Voleur());
+				break;
+			case "4":
+				team.addCharacter(new Barbare());
+				break;
+			case "5":
+				team.addCharacter(new Ranger());
 				break;
 
 			default:
