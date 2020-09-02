@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import main.Plateau;
 
-public class start {
+public class Start {
 
 	static Coordinate spawnT1 ;
 	static Coordinate spawnT2 ;
@@ -171,6 +171,9 @@ public class start {
 		System.out.println(" 1-Deplacement \n 2-Action ");
 		String answer=scan.next();
 
+		
+		
+		
 		while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>2) {
 			System.out.println("Choix non disponible, choisis parmis : \n 1-Deplacement \n 2-Action ");
 			answer = scan.next();
