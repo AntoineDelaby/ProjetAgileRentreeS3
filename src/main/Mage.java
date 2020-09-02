@@ -2,7 +2,7 @@ package main;
 
 public class Mage extends Character{
 	
-	public static final int HP = 6;
+	public static final int HP = 11;
 	public static final int DMG = 8;
 	public static final boolean PASSIF = false;
 	

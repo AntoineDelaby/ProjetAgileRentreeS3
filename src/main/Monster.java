@@ -8,11 +8,11 @@ public class Monster extends Entity {
 	
 	private static Random rand = new Random();
 	
-	private static final int HPMIN=10;
-	private static final int HPMAX=20;
+	private static final int HPMIN=15;
+	private static final int HPMAX=25;
 	
-	private static final int ADMIN=8;
-	private static final int ADMAX=15;
+	private static final int ADMIN=5;
+	private static final int ADMAX=8;
 	
 	private boolean hide = true;
 	

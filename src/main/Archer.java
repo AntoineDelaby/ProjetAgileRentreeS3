@@ -2,7 +2,7 @@ package main;
 
 public class Archer extends Character{
 	
-	public static final int HP = 8;
+	public static final int HP = 13;
 	public static final int DMG = 6;
 	public static final boolean PASSIF = false;
 	

@@ -62,33 +62,33 @@ public class start {
 				"Voici les diff�rentes classes disponibles :\r\n" + 
 				"\r\n" + 
 				" BARBARE :\r\n" + 
-				"    - PV : 10\r\n" + 
+				"    - PV : 15\r\n" + 
 				"    - Attaque : 7\r\n" + 
 				"    - Passif : lors d'un combat, le barbare prend plus de coup pour ses co�quipier et l'�quipe\r\n" + 
 				"	       du joueur prend 10% de d�g�ts en moins lors de combats. R�duisez les d�g�ts subis jusqu'� 20%\r\n" + 
 				"               si votre �quipe est compos�e de deux barbares.\r\n" + 
 				"\r\n" + 
 				" ARCHER :\r\n" + 
-				"    - PV : 8\r\n" + 
+				"    - PV : 13\r\n" + 
 				"    - Attaque : 6\r\n" + 
 				"    - Actif : l'archer est un �claireur dans l'�me. Utilisez sa comp�tence pour r�v�ler les 4 salles du donjon\r\n" + 
 				"              au nord, sud, est et ouest de la salle dans laquelle votre �quipe se trouve.\r\n" + 
 				"\r\n" + 
 				" MAGE :\r\n" + 
-				"    - PV : 6\r\n" + 
+				"    - PV : 11\r\n" + 
 				"    - Attaque : 8\r\n" + 
 				"    - Actif : le mage a la capacit� de soigner son �quipe de ses lourdes blessures. Utilisez sa comp�tence\r\n" + 
 				"              afin de soigner votre �quipe de 5 PV. Ce soin monte � 10PV si l'�quipe est compos�e de deux mages.\r\n" + 
 				"\r\n" + 
 				" RANGER :\r\n" + 
-				"    - PV : 7\r\n" + 
+				"    - PV : 12\r\n" + 
 				"    - Attaque : 6\r\n" + 
 				"    - Passif : le ranger se sent pousser des ailes en combat d'�quipe ! Ses d�g�ts d'attaque augmente l�g�rement\r\n" + 
 				"	       et procurent � l'�quipe un bonus de points d'attaque de 3. Obtenez un bonus maximum de 6\r\n" + 
 				"               points d'attaque si votre �quipe est compos�e de deux rangers.\r\n" + 
 				"\r\n" + 
 				" VOLEUR :\r\n" + 
-				"    - PV : 4\r\n" + 
+				"    - PV : 9\r\n" + 
 				"    - Attaque : 5\r\n" + 
 				"    - Actif : lorsque le voleur est choisi, il a la capacit� de faire avancer son �quipe d'une case de plus,\r\n" + 
 				" 	      soit deux cases en un tour. Avec deux voleur dans votre �quipe, le bonus peut aller jusqu'� deux\r\n" + 

@@ -2,7 +2,7 @@ package main;
 
 public class Ranger extends Character{
 
-	public static final int HP = 7;
+	public static final int HP = 12;
 	public static final int DMG = 6;
 	private static final boolean PASSIF = true;
 	
