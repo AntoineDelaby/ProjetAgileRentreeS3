@@ -19,7 +19,10 @@ public class Archer extends Character{
 	
 
 	public void action() {
-		
+		boolean res = false;
+		for (int i=0; i<Direction.values().length; i++) {
+			Plateau.reveal(super.team.getCoordinate().update(Direction.values()[i]));
+		}
 	}
 	
 }
