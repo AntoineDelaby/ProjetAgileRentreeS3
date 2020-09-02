@@ -232,7 +232,7 @@ public class start {
 		if(Plateau.aCombatre != null) {
 			System.out.println("Vous rencontrez un ennemie avec "+Plateau.aCombatre.getAttackDamage()+" de dégâts et "+Plateau.aCombatre.getHealthPoint()+" hp.");
 			try {
-				TimeUnit.SECONDS.sleep(5) ;
+				TimeUnit.SECONDS.sleep(2) ;
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
@@ -240,7 +240,7 @@ public class start {
 				Plateau.aCombatre.setHealthPoint(Plateau.aCombatre.getHealthPoint()-team.getAttackDamage());
 				System.out.println("Vous infligez "+team.getAttackDamage()+ " de dégâts à l'ennemie...");
 				try {
-					TimeUnit.SECONDS.sleep(5) ;
+					TimeUnit.SECONDS.sleep(2) ;
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
