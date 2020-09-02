@@ -31,6 +31,8 @@ public class Team extends Entity{
 	public void heal(int amount) {
 		if ((super.getHealthPoint()+amount)<Team.MAX_HP) {
 			super.setHealthPoint(super.getHealthPoint()+ amount);
+		}else {
+			super.setHealthPoint(Team.MAX_HP);
 		}
 	}
 	public void damage(int amount) {
