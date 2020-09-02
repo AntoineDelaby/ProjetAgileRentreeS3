@@ -219,13 +219,16 @@ public class start {
 		case "2":
 			
 			for(int i = 0; i < 3; i++) {
-				//if (team.getCharacterList().get(i).isPassif()) 
+				if (team.getCharacterList().get(i).isPassif()) {
+					System.out.println((i+1) + "-pouvoir passsif") ;
+				}else {
+					System.out.println((i+1) + "-pouvoir " + team.getCharacterList().get(i).getName());
+				}
 					
-				System.out.println((i+1) + "-pouvoir " + team.getCharacterList().get(i).getName());
 			}
 			answer=scan.next();
 
-			while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>3) {
+			while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>3 || team.getCharacterList().get(Integer.parseInt(answer)).isPassif()) {
 				System.out.println("Choix non disponible.");
 				answer = scan.next();
 			}
