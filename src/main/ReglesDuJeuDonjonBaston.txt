@@ -1,0 +1,54 @@
+~~ Donjon Baston ~~
+
+Regles du jeu :
+
+Deux joueurs s'affrontent dans le donjon. Chaque joueur a la possibilite de choisir
+trois personnages de classe differente (ou pas!) afin de constituer leur equipe.
+Parcourez avec votre equipe le donjon, decouvrez les differentes salles, combattez
+les monstres que vous rencontrez, trouvez la salle du boss (il parait qu'elle se situerait plus ou moins
+au centre du donjon ...), terrassez-le, et recuperer son tresor !
+
+Le premier joueur a atteindre son point de depart avec le tresor du boss a gagne.
+Mais attention ! Les combats seront rudes et les blessures nombreuses! Si une equipe perd tous ses
+points de vie, l'equipe adverse s'empare de la victoire sans meme avoir atteint l'objectif initial.
+
+Aventurieres, aventuriers, a vous de jouer !
+
+
+Voici les differentes classes disponibles :
+
+BARBARE :
+- PV : 10
+- Attaque : 7
+- Passif : lors d'un combat, le barbare prend plus de coup pour ses coequipier et l'equipe
+du joueur prend 10% de degats en moins lors de combats. Reduisez les degats subis jusqu'a 20%
+si votre equipe est composee de deux barbares.
+
+ARCHER :
+- PV : 8
+- Attaque : 6
+- Actif : l'archer est un eclaireur dans l'ame. Utilisez sa competence pour reveler les 4 salles du donjon
+au nord, sud, est et ouest de la salle dans laquelle votre equipe se trouve.
+
+MAGE :
+- PV : 6
+- Attaque : 8
+- Actif : le mage a la capacite de soigner son equipe de ses lourdes blessures. Utilisez sa competence
+afin de soigner votre equipe de 5 PV. Ce soin monte a 10PV si l'equipe est composee de deux mages.
+
+RANGER :
+- PV : 7
+- Attaque : 6
+- Passif : le ranger se sent pousser des ailes en combat d'equipe ! Ses degats d'attaque augmente legerement
+et procurent a l'equipe un bonus de points d'attaque de 3. Obtenez un bonus maximum de 6
+points d'attaque si votre equipe est composee de deux rangers.
+
+VOLEUR :
+- PV : 4
+- Attaque : 5
+- Actif : lorsque le voleur est choisi, il a la capacite de faire avancer son equipe d'une case de plus,
+soit deux cases en un tour. Avec deux voleur dans votre equipe, le bonus peut aller jusqu'a deux
+cases en plus lors du deplacement de l'equipe.
+
+Attention ! Lors du tour d'un joueur, celui-ci a le choix entre AVANCER, ou UTILISER UNE COMPETENCE,\
+mais pas les deux.

@@ -1,5 +1,9 @@
 package main;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -11,15 +15,15 @@ public class start {
 	static Coordinate spawnT1 ;
 	static Coordinate spawnT2 ;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		menu();
 
 	}
 	
-	public static void menu() {
+	public static void menu() throws IOException {
 		clear();
-		System.out.println("Veuillez choisir une option du menu : \n 1 - Start \n 2 - R�gles \n 3 - Cr�dits");
+		System.out.println("     ~~Donjon Baston~~\n\n\nVeuillez choisir une option du menu : \n 1 - Start \n 2 - Regles \n 3 - Credits");
 		Scanner scan = new Scanner(System.in);
 		String answer = scan.next();
 		switch (answer) {
@@ -40,62 +44,19 @@ public class start {
 		}
 	}
 	
-	public static void regles() {
+	public static void regles() throws IOException {
 		clear();
-		System.out.println("     ~~ Donjon Baston ~~\r\n" + 
-				"\r\n" + 
-				"R�gles du jeu :\r\n" + 
-				"\r\n" + 
-				"  Deux joueurs s'affrontent dans le donjon. Chaque joueur a la possibilit� de choisir\r\n" + 
-				"trois personnages de classe diff�rente (ou pas!) afin de constituer leur �quipe.\r\n" + 
-				"Parcourez avec votre �quipe le donjon, d�couvrez les diff�rentes salles, combattez\r\n" + 
-				"les monstres que vous rencontrez, trouvez la salle du boss (il para�t qu'elle se situerait plus ou moins\r\n" + 
-				"au centre du donjon ...), terrassez-le, et r�cup�rer son tr�sor !\r\n" + 
-				"\r\n" + 
-				"Le premier joueur � atteindre son point de d�part avec le tr�sor du boss a gagn�.\r\n" + 
-				"Mais attention ! Les combats seront r�des et les blessures nombreuses! Si une �quipe perd tous ses \r\n" + 
-				"points de vie, l'�quipe adverse s'empare de la victoire sans m�me avoir atteint l'objectif initial.\r\n" + 
-				"\r\n" + 
-				" Aventuri�res, aventuriers, � vous de jouer !\r\n" + 
-				"\r\n" + 
-				"\r\n" + 
-				"Voici les diff�rentes classes disponibles :\r\n" + 
-				"\r\n" + 
-				" BARBARE :\r\n" + 
-				"    - PV : 15\r\n" + 
-				"    - Attaque : 7\r\n" + 
-				"    - Passif : lors d'un combat, le barbare prend plus de coup pour ses co�quipier et l'�quipe\r\n" + 
-				"	       du joueur prend 10% de d�g�ts en moins lors de combats. R�duisez les d�g�ts subis jusqu'� 20%\r\n" + 
-				"               si votre �quipe est compos�e de deux barbares.\r\n" + 
-				"\r\n" + 
-				" ARCHER :\r\n" + 
-				"    - PV : 13\r\n" + 
-				"    - Attaque : 6\r\n" + 
-				"    - Actif : l'archer est un �claireur dans l'�me. Utilisez sa comp�tence pour r�v�ler les 4 salles du donjon\r\n" + 
-				"              au nord, sud, est et ouest de la salle dans laquelle votre �quipe se trouve.\r\n" + 
-				"\r\n" + 
-				" MAGE :\r\n" + 
-				"    - PV : 11\r\n" + 
-				"    - Attaque : 8\r\n" + 
-				"    - Actif : le mage a la capacit� de soigner son �quipe de ses lourdes blessures. Utilisez sa comp�tence\r\n" + 
-				"              afin de soigner votre �quipe de 5 PV. Ce soin monte � 10PV si l'�quipe est compos�e de deux mages.\r\n" + 
-				"\r\n" + 
-				" RANGER :\r\n" + 
-				"    - PV : 12\r\n" + 
-				"    - Attaque : 6\r\n" + 
-				"    - Passif : le ranger se sent pousser des ailes en combat d'�quipe ! Ses d�g�ts d'attaque augmente l�g�rement\r\n" + 
-				"	       et procurent � l'�quipe un bonus de points d'attaque de 3. Obtenez un bonus maximum de 6\r\n" + 
-				"               points d'attaque si votre �quipe est compos�e de deux rangers.\r\n" + 
-				"\r\n" + 
-				" VOLEUR :\r\n" + 
-				"    - PV : 9\r\n" + 
-				"    - Attaque : 5\r\n" + 
-				"    - Actif : lorsque le voleur est choisi, il a la capacit� de faire avancer son �quipe d'une case de plus,\r\n" + 
-				" 	      soit deux cases en un tour. Avec deux voleur dans votre �quipe, le bonus peut aller jusqu'� deux\r\n" + 
-				"              cases en plus lors du d�placement de l'�quipe.\r\n" + 
-				"\r\n" + 
-				"Attention ! Lors du tour d'un joueur, celui-ci a le choix entre AVANCER, ou UTILISER UNE COMPETENCE,\\\r\n" + 
-				"mais pas les deux. ");
+		BufferedReader lecteur = null;
+		String regles;
+		try {
+			lecteur=new BufferedReader(new FileReader("src/main/ReglesDuJeuDonjonBaston.txt"));
+		}catch (FileNotFoundException e) {
+			System.out.println("Erreur d'ouverture ...");
+		}while ((regles=lecteur.readLine())!=null) {
+			System.out.println(regles);
+			
+		}
+		lecteur.close();
 		System.out.println("\n\n\n Appuyez sur M pour retourner au Menu !");
 		Scanner scan = new Scanner(System.in);
 		String answer = scan.next();
@@ -106,7 +67,7 @@ public class start {
 		}
 	}
 	
-	public static void credits() {
+	public static void credits() throws IOException {
 		clear();
 		System.out.println("Cr�dits : \n Antoine DELABY \n Charles DESBIENS \n Ayoub LAHOUAICHRI \n Corentin LEBLEU \n Maxime SOUDANT \n\n\n Appuyez sur M pour retourner au Menu !");
 		Scanner scan = new Scanner(System.in);
@@ -124,7 +85,7 @@ public class start {
 		}
 	}
 	
-	public static void partie() {
+	public static void partie() throws IOException {
 		Random rand = new Random();
 		
 		Team team1 = new Team();
@@ -152,7 +113,7 @@ public class start {
 		if(team2.getCoordinate().equals(spawnT2) && team2.isTresorRecupere()) return 2 ;
 		return 0;
 	}
-	public static void deroulement(Plateau map, Team team1, Team team2) {
+	public static void deroulement(Plateau map, Team team1, Team team2) throws IOException {
 		clear();
 		affichage(map, team1, team2);
 		int vainqueur = 0 ;
@@ -173,7 +134,7 @@ public class start {
 
 	}
 	
-	private static void messageDeFin(int vainqueur) {
+	private static void messageDeFin(int vainqueur) throws IOException {
 		switch (vainqueur) {
 		case 1:
 			clear();
