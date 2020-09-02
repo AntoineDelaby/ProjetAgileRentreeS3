@@ -249,6 +249,7 @@ public class start {
 					System.out.println("L'ennemie vous inflige"+team.getAttackDamage()+ " de dégâts...");
 				}else {
 					System.out.println("Bravo, l'ennemie a été vaincu !");
+					
 				}
 				try {
 					TimeUnit.SECONDS.sleep(5) ;
@@ -256,6 +257,7 @@ public class start {
 					e.printStackTrace();
 				}
 			}
+			Plateau.aCombatre = null ;
 			if (team.getHealthPoint()<=0) {
 				System.out.println("Aïe, l'ennemie vous a tué !");
 			}
