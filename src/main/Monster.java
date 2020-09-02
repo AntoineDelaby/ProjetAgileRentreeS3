@@ -11,7 +11,7 @@ public class Monster extends Entity {
 	private static final int HPMIN=15;
 	private static final int HPMAX=25;
 	
-	private static final int ADMIN=5;
+	private static final int ADMIN=5; 
 	private static final int ADMAX=8;
 	
 	private boolean hide = true;
