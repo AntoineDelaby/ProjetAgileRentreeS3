@@ -110,4 +110,12 @@ public class Plateau {
 		return dir;
 	}
 	
+	public static void reveal(Coordinate coo) {
+		if ( (coo.getX()>=Plateau.length) || (coo.getY()>=Plateau.width)
+				|| (coo.getX()<0) || (coo.getY()<0) ) return;
+		if (Plateau.plateau[coo.getX()][coo.getY()] != null) {
+			Plateau.plateau[coo.getX()][coo.getY()].setHide(false);
+		}
+	}
+	
 }
