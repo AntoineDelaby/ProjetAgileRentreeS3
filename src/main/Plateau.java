@@ -11,6 +11,8 @@ public class Plateau {
 	private static Entity[][]plateau;
 	
 	public static Entity aCombatre;
+	private static Coordinate spawnT1 ;
+	private static Coordinate spawnT2 ;
 	
 	public Plateau (int length, int width) {
 
@@ -18,6 +20,8 @@ public class Plateau {
 		this.width=width;
 		this.plateau=new Entity[this.length][this.width];
 		aCombatre = null ;
+		this.spawnT1 = null ;
+		this.spawnT2 = null ;
 
 		Plateau.length=length;
 		Plateau.width=width;
@@ -37,9 +41,18 @@ public class Plateau {
 			tmp+="|";
 			for (int j=0; j<this.width; j++) {
 				if(plateau[i][j]==null||plateau[i][j].isHide()) {
-					tmp+="  ";
+					if (new Coordinate(i, j).equals(this.spawnT1) || new Coordinate(i, j).equals(this.spawnT2)) {
+						tmp+=" X";
+					}else {
+						tmp+="  ";
+					}
 				}else{
-					tmp+=plateau[i][j].toString() + " ";
+					tmp+=plateau[i][j].toString() ;
+					if (new Coordinate(i, j).equals(this.spawnT1) || new Coordinate(i, j).equals(this.spawnT2)) {
+						tmp+="X";
+					}else {
+						tmp+=" ";
+					}
 				}
 				tmp+="|";
 			}
@@ -55,6 +68,12 @@ public class Plateau {
 	public static void setTeam(Entity t, int x, int y) {
 		plateau[x][y] = t ;
 		t.setCoordinate(new Coordinate(x, y));
+		if (spawnT1 == null) {
+			spawnT1 = new Coordinate(x, y) ;	
+		}else if(spawnT2 == null){
+			spawnT2 = new Coordinate(x, y);
+		}
+		//System.out.println(spawnT1 + "---" + spawnT2);
 	}
 	public static void setTeam(Entity t, Coordinate coo) {
 		setTeam(t, coo.getX(), coo.getY());
