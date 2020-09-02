@@ -10,7 +10,7 @@ public class Plateau {
 	private static int width;
 	private static Entity[][]plateau;
 	
-	public static Entity aCombatre ;
+	public static Entity aCombatre;
 	
 	public Plateau (int length, int width) {
 
