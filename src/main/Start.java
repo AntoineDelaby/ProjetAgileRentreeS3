@@ -73,7 +73,7 @@ public class Start {
 	
 	public static void credits() throws IOException {
 		clear();
-		System.out.println("Cr�dits : \n Antoine DELABY \n Charles DESBIENS \n Ayoub LAHOUAICHRI \n Corentin LEBLEU \n Maxime SOUDANT \n\n\n Appuyez sur M pour retourner au Menu !");
+		System.out.println("Cr�dits : \n Antoine DELABY \n Charles DESBIENS \n Ayoub LAHOUAICHRI \n Corentin LEBLEU \n Maxime SOUDANT \n\n\n Appuyez sur M pour retourner au Menu !");
 		Scanner scan = new Scanner(System.in);
 		String answer = scan.next();
 		if (answer.equalsIgnoreCase("m")) {
@@ -187,7 +187,7 @@ public class Start {
 			
 			for(int i = 0; i < 3; i++) {
 				if (team.getCharacterList().get(i).isPassif()) {
-					System.out.println((i+1) + "-pouvoir passsif") ;
+					System.out.println((i+1) + "-pouvoir passif") ;
 				}else {
 					System.out.println((i+1) + "-pouvoir " + team.getCharacterList().get(i).getName());
 				}
@@ -209,7 +209,7 @@ public class Start {
 			break;
 		}
 		if(Plateau.aCombatre != null) {
-			System.out.println("Vous rencontrez un ennemie avec "+Plateau.aCombatre.getAttackDamage()+" de dégâts et "+Plateau.aCombatre.getHealthPoint()+" hp.");
+			System.out.println("Vous rencontrez un ennemie avec "+Plateau.aCombatre.getAttackDamage()+" de degats et "+Plateau.aCombatre.getHealthPoint()+" hp.");
 			if (Plateau.aCombatre instanceof Boss) {
 				System.out.println("Attention c'est le Boss !!!");
 			}
@@ -220,7 +220,7 @@ public class Start {
 			}
 			while(Plateau.aCombatre.getHealthPoint()>0 && team.getHealthPoint()>0) {
 				Plateau.aCombatre.setHealthPoint(Plateau.aCombatre.getHealthPoint()-team.getAttackDamage());
-				System.out.println("Vous infligez "+team.getAttackDamage()+ " de dégâts à l'ennemie...");
+				System.out.println("Vous infligez "+team.getAttackDamage()+ " de degtasts a� l'ennemie...");
 				try {
 					TimeUnit.SECONDS.sleep(2) ;
 				} catch (InterruptedException e) {
@@ -228,9 +228,9 @@ public class Start {
 				}
 				if (Plateau.aCombatre.getHealthPoint()>0) {
 					team.setHealthPoint(team.getHealthPoint()-Plateau.aCombatre.getAttackDamage());
-					System.out.println("L'ennemie vous inflige "+team.getAttackDamage()+ " de dégâts...");
+					System.out.println("L'ennemie vous inflige "+team.getAttackDamage()+ " de degats...");
 				}else {
-					System.out.println("Bravo, l'ennemie a été vaincu !");
+					System.out.println("Bravo, l'ennemie a ete vaincu !");
 					
 				}
 				try {
@@ -241,7 +241,7 @@ public class Start {
 			}
 			if(Plateau.aCombatre instanceof Boss && team.getHealthPoint() > 0) {
 				team.setTresorRecupere(true);
-				System.out.println("Vous avez récupéré le trésor !\nRevenez vite à votre camp de base !");
+				System.out.println("Vous avez recupere le tresor !\nRevenez vite a� votre camp de base !");
 				try {
 					TimeUnit.SECONDS.sleep(3);
 				} catch (InterruptedException e) {
@@ -250,7 +250,7 @@ public class Start {
 			}
 			Plateau.aCombatre = null ;
 			if (team.getHealthPoint()<=0) {
-				System.out.println("Aïe, l'ennemie vous a tué !");
+				System.out.println("Aie, l'ennemie vous a tue !");
 			}
 		}
 	}
