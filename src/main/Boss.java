@@ -2,7 +2,7 @@ package main;
 
 public class Boss extends Monster{
 
-	private boolean Tresor = true;
+	//private boolean Tresor = true;
 	
 	private static final int COEFFHP = 3;
 	private static final int COEFFATTACK = 2;

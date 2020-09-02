@@ -257,6 +257,10 @@ public class start {
 					e.printStackTrace();
 				}
 			}
+			if(Plateau.aCombatre instanceof Boss && team.getHealthPoint() > 0) {
+				team.setTresorRecupere(true);
+				System.out.println("Vous avez récupéré le trésor !\nRevenez vite à votre camp de base !");
+			}
 			Plateau.aCombatre = null ;
 			if (team.getHealthPoint()<=0) {
 				System.out.println("Aïe, l'ennemie vous a tué !");
