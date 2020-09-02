@@ -33,9 +33,9 @@ public class TeamCreationTest {
 	
 	@Test
 	public void test_teamCreation() {
-		assertEquals(24,t1.getHealthPoint());
+		assertEquals(39,t1.getHealthPoint());
 		assertEquals(21,t1.getAttackDamage());
-		assertEquals(18,t2.getHealthPoint());
+		assertEquals(33,t2.getHealthPoint());
 		assertEquals(19,t2.getAttackDamage());
 	}
 }
