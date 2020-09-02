@@ -2,7 +2,7 @@ package main;
 
 public class Voleur extends Character{
 	
-	public static final int HP = 5;
+	public static final int HP = 4;
 	public static final int DMG = 5;
 	public static final boolean PASSIF = false;
 	
