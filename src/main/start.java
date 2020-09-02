@@ -173,6 +173,7 @@ public class start {
 			answer = scan.next();
 		}
 		
+		
 		switch (answer) {
 		case "1":
 			team.getCoordinate().update(map.askMove(team));
@@ -188,9 +189,13 @@ public class start {
 				}
 					
 			}
+			System.out.println("4-retour");
 			answer=scan.next();
-			
 
+			if(Integer.parseInt(answer)==4) {
+				play(map, team);
+				return ;
+			}
 			
 			while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>3 || team.getCharacterList().get(Integer.parseInt(answer)-1).isPassif()) {
 				System.out.println("Choix non disponible.");
@@ -201,6 +206,9 @@ public class start {
 		}
 		if(Plateau.aCombatre != null) {
 			System.out.println("Vous rencontrez un ennemie avec "+Plateau.aCombatre.getAttackDamage()+" de dégâts et "+Plateau.aCombatre.getHealthPoint()+" hp.");
+			if (Plateau.aCombatre instanceof Boss) {
+				System.out.println("Attention c'est le Boss !!!");
+			}
 			try {
 				TimeUnit.SECONDS.sleep(2) ;
 			} catch (InterruptedException e1) {
@@ -216,7 +224,7 @@ public class start {
 				}
 				if (Plateau.aCombatre.getHealthPoint()>0) {
 					team.setHealthPoint(team.getHealthPoint()-Plateau.aCombatre.getAttackDamage());
-					System.out.println("L'ennemie vous inflige"+team.getAttackDamage()+ " de dégâts...");
+					System.out.println("L'ennemie vous inflige "+team.getAttackDamage()+ " de dégâts...");
 				}else {
 					System.out.println("Bravo, l'ennemie a été vaincu !");
 					
