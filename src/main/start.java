@@ -260,6 +260,11 @@ public class start {
 			if(Plateau.aCombatre instanceof Boss && team.getHealthPoint() > 0) {
 				team.setTresorRecupere(true);
 				System.out.println("Vous avez récupéré le trésor !\nRevenez vite à votre camp de base !");
+				try {
+					TimeUnit.SECONDS.sleep(3);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 			Plateau.aCombatre = null ;
 			if (team.getHealthPoint()<=0) {
