@@ -44,6 +44,7 @@ public class start {
 		}
 	}
 	
+	
 	public static void regles() throws IOException {
 		clear();
 		BufferedReader lecteur = null;
