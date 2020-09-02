@@ -190,6 +190,7 @@ public class start {
 			}
 			answer=scan.next();
 
+			
 			while (Integer.parseInt(answer)<1||Integer.parseInt(answer)>3 || team.getCharacterList().get(Integer.parseInt(answer)-1).isPassif()) {
 				System.out.println("Choix non disponible.");
 				answer = scan.next();
