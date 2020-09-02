@@ -19,4 +19,4 @@ public class Voleur extends Character{
 		Direction dir = Plateau.askMove(super.team);
 		Plateau.move(super.team, dir);
 	}
-}
+} 

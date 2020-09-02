@@ -21,4 +21,4 @@ public class Mage extends Character{
 	public void action() {
 		super.team.heal(Mage.HEAL);
 	}
-}
+} 

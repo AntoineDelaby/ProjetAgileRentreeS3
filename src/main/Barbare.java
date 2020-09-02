@@ -19,4 +19,4 @@ public class Barbare extends Character{
 	public void action() {
 		
 	}
-}
+} 
