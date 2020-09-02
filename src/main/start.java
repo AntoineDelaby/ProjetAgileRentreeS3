@@ -217,7 +217,10 @@ public class start {
 			break;
 			
 		case "2":
+			
 			for(int i = 0; i < 3; i++) {
+				//if (team.getCharacterList().get(i).isPassif()) 
+					
 				System.out.println((i+1) + "-pouvoir " + team.getCharacterList().get(i).getName());
 			}
 			answer=scan.next();
