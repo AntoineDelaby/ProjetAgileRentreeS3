@@ -15,6 +15,9 @@ public class start {
 	static Coordinate spawnT1 ;
 	static Coordinate spawnT2 ;
 	
+	//pour la taille, prendre un nombre divisible par 3
+	static final int TAILLE_MAP = 9 ;
+	
 	public static void main(String[] args) throws IOException {
 		
 		menu();
@@ -23,7 +26,7 @@ public class start {
 	
 	public static void menu() throws IOException {
 		clear();
-		System.out.println("     ~~Donjon Baston~~\n\n\nVeuillez choisir une option du menu : \n 1 - Start \n 2 - Regles \n 3 - Credits");
+		System.out.println("     ~~ Donjon Baston ~~\n\n\nVeuillez choisir une option du menu : \n 1 - Start \n 2 - Regles \n 3 - Credits");
 		Scanner scan = new Scanner(System.in);
 		String answer = scan.next();
 		switch (answer) {
@@ -95,9 +98,9 @@ public class start {
 		System.out.println("\n\n\n");
 		creationDesTeam(team2);
 		
-		Plateau map = new Plateau(15,15);
-		map.setTeam(team1, 0, rand.nextInt(15));
-		map.setTeam(team2, 14, rand.nextInt(15));
+		Plateau map = new Plateau(TAILLE_MAP,TAILLE_MAP);
+		map.setTeam(team1, 0, rand.nextInt(TAILLE_MAP));
+		map.setTeam(team2, TAILLE_MAP-1, rand.nextInt(TAILLE_MAP));
 		spawnT1 = team1.getCoordinate() ;
 		spawnT2 = team2.getCoordinate() ;
 		
@@ -269,10 +272,10 @@ public class start {
 
 	public static void MonsterMap(Plateau map) {
 		Random rand = new Random();
-		map.setTeam(new Boss(), 6+rand.nextInt(3), 6+rand.nextInt(3));
+		map.setTeam(new Boss(), (TAILLE_MAP/3) +rand.nextInt(TAILLE_MAP/3), (TAILLE_MAP/3) +rand.nextInt(TAILLE_MAP/3));
 		
-		for (int i = 0; i<15; i++) {
-			for (int j=0;j<15;j++) {
+		for (int i = 0; i<TAILLE_MAP; i++) {
+			for (int j=0;j<TAILLE_MAP;j++) {
 				if (map.getCase(i, j)==null) {
 					if (rand.nextInt(5)==3) {
 						map.setTeam(new Monster(), i, j);
