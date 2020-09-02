@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -32,10 +33,22 @@ public class TeamCreationTest {
 	}
 	
 	@Test
-	public void test_teamCreation() {
+	public void test_wellAdded() {
+		assertTrue(t1.getCharacterList().contains(a1));
+		assertTrue(t1.getCharacterList().contains(m1));
+		assertTrue(t2.getCharacterList().contains(a2));
+		assertTrue(t2.getCharacterList().contains(v2));
+	}
+	
+	@Test
+	public void test_rightHPs() {
 		assertEquals(39,t1.getHealthPoint());
-		assertEquals(21,t1.getAttackDamage());
 		assertEquals(33,t2.getHealthPoint());
+	}
+	
+	@Test
+	public void test_rightADs() {
+		assertEquals(21,t1.getAttackDamage());
 		assertEquals(19,t2.getAttackDamage());
 	}
 }
