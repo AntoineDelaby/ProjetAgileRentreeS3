@@ -73,7 +73,6 @@ public class Plateau {
 		}else if(spawnT2 == null){
 			spawnT2 = new Coordinate(x, y);
 		}
-		//System.out.println(spawnT1 + "---" + spawnT2);
 	}
 	public static void setTeam(Entity t, Coordinate coo) {
 		setTeam(t, coo.getX(), coo.getY());
