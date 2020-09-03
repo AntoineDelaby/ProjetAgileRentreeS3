@@ -104,7 +104,7 @@ public class Plateau {
 		Scanner scan = new Scanner(System.in);
 		Direction dir = null;
 		do {
-			System.out.println("Dans quelle direction voulez vous vous déplacer ?");
+			System.out.println("Dans quelle direction voulez vous vous deplacer ?");
 			System.out.println("N - S - E - O");
 			String res = scan.nextLine();
 			dir = null;
@@ -119,6 +119,18 @@ public class Plateau {
 				dir = Direction.EAST;
 				break;
 			case "O":
+				dir = Direction.WEST;
+				break;
+			case "n":
+				dir = Direction.NORTH;
+				break;
+			case "s":
+				dir = Direction.SOUTH;
+				break;
+			case "e":
+				dir = Direction.EAST;
+				break;
+			case "o":
 				dir = Direction.WEST;
 				break;
 

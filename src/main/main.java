@@ -15,6 +15,7 @@ public class main {
 	
 	//pour la taille, prendre un nombre divisible par 3
 	static final int TAILLE_MAP = 9 ;
+	static final int RNG_MONSTER = 3;
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -25,7 +26,7 @@ public class main {
 	public static void menu() throws IOException {
 		clear();
 		
-		System.out.println("     ~~ Donjon Baston ~~\n\n\nVeuillez choisir une option du menu : \n 1 - Start \n 2 - Regles \n 3 - Credits");
+		System.out.println("     ~~ Donjon Baston ~~\n\n\nVeuillez choisir une option du menu : \n 1 - Start \n 2 - Regles \n 3 - Credits \n 4 - Quiter");
 		Scanner scan = new Scanner(System.in);
 		String answer ; 
 		
@@ -42,6 +43,10 @@ public class main {
 			case "3":
 			credits();
 			break;
+			
+			case "4":
+				System.exit(0);
+				break;
 
 			}
 
@@ -220,7 +225,7 @@ public class main {
 			}
 			while(Plateau.aCombatre.getHealthPoint()>0 && team.getHealthPoint()>0) {
 				Plateau.aCombatre.setHealthPoint(Plateau.aCombatre.getHealthPoint()-team.getAttackDamage());
-				System.out.println("Vous infligez "+team.getAttackDamage()+ " de degats Ã  l'ennemie...");
+				System.out.println("Vous infligez "+team.getAttackDamage()+ " de degats a  l'ennemie...");
 				try {
 					TimeUnit.SECONDS.sleep(2) ;
 				} catch (InterruptedException e) {
@@ -278,7 +283,7 @@ public class main {
 		for (int i = 0; i<TAILLE_MAP; i++) {
 			for (int j=0;j<TAILLE_MAP;j++) {
 				if (map.getCase(i, j)==null) {
-					if (rand.nextInt(5)==3) {
+					if (rand.nextInt(RNG_MONSTER)==0) {
 						map.setTeam(new Monster(), i, j);
 					}
 				}
