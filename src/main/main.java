@@ -15,7 +15,7 @@ public class main {
 	
 	//pour la taille, prendre un nombre divisible par 3
 	static final int TAILLE_MAP = 9 ;
-	static final int RNG_MONSTER = 3;
+	static final int RNG_MONSTER = 2;
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -26,7 +26,7 @@ public class main {
 	public static void menu() throws IOException {
 		clear();
 		
-		System.out.println("     ~~ Donjon Baston ~~\n\n\nVeuillez choisir une option du menu : \n 1 - Start \n 2 - Regles \n 3 - Credits \n 4 - Quiter");
+		System.out.println("     ~~ Donjon Baston ~~\n\n\nVeuillez choisir une option du menu : \n 1 - Start \n 2 - Regles \n 3 - Credits \n 4 - Quiter ");
 		Scanner scan = new Scanner(System.in);
 		String answer ; 
 		
@@ -225,7 +225,7 @@ public class main {
 			}
 			while(Plateau.aCombatre.getHealthPoint()>0 && team.getHealthPoint()>0) {
 				Plateau.aCombatre.setHealthPoint(Plateau.aCombatre.getHealthPoint()-team.getAttackDamage());
-				System.out.println("Vous infligez "+team.getAttackDamage()+ " de degats a� l'ennemie...");
+				System.out.println("Vous infligez "+team.getAttackDamage()+ " de degats a  l'ennemie...");
 				try {
 					TimeUnit.SECONDS.sleep(2) ;
 				} catch (InterruptedException e) {
@@ -235,7 +235,7 @@ public class main {
 					team.setHealthPoint(team.getHealthPoint()-Plateau.aCombatre.getAttackDamage());
 					System.out.println("L'ennemie vous inflige "+team.getAttackDamage()+ " de degats...");
 				}else {
-					System.out.println("Bravo, l'ennemie a �t� vaincu !");
+					System.out.println("Bravo, l'ennemie a été vaincu !");
 					
 				}
 				try {
@@ -246,7 +246,7 @@ public class main {
 			}
 			if(Plateau.aCombatre instanceof Boss && team.getHealthPoint() > 0) {
 				team.setTresorRecupere(true);
-				System.out.println("Vous avez recupere le trésor !\nRevenez vite à votre camp de base !");
+				System.out.println("Vous avez recupere le trÃ©sor !\nRevenez vite Ã  votre camp de base !");
 				try {
 					TimeUnit.SECONDS.sleep(3);
 				} catch (InterruptedException e) {
