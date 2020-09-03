@@ -214,7 +214,7 @@ public class main {
 			break;
 		}
 		if(Plateau.aCombatre != null) {
-			System.out.println("Vous rencontrez un ennemie avec "+Plateau.aCombatre.getAttackDamage()+" de degatsts et "+Plateau.aCombatre.getHealthPoint()+" hp.");
+			System.out.println("Vous rencontrez un ennemie avec "+Plateau.aCombatre.getAttackDamage()+" de degats et "+Plateau.aCombatre.getHealthPoint()+" hp.");
 			if (Plateau.aCombatre instanceof Boss) {
 				System.out.println("Attention c'est le Boss !!!");
 			}
@@ -235,7 +235,7 @@ public class main {
 					team.setHealthPoint(team.getHealthPoint()-Plateau.aCombatre.getAttackDamage());
 					System.out.println("L'ennemie vous inflige "+team.getAttackDamage()+ " de degats...");
 				}else {
-					System.out.println("Bravo, l'ennemie a été vaincu !");
+					System.out.println("Bravo, l'ennemie a ete vaincu !");
 					
 				}
 				try {
@@ -246,7 +246,7 @@ public class main {
 			}
 			if(Plateau.aCombatre instanceof Boss && team.getHealthPoint() > 0) {
 				team.setTresorRecupere(true);
-				System.out.println("Vous avez recupere le trÃ©sor !\nRevenez vite Ã  votre camp de base !");
+				System.out.println("Vous avez recupere le tresor !\nRevenez vite a  votre camp de base !");
 				try {
 					TimeUnit.SECONDS.sleep(3);
 				} catch (InterruptedException e) {
