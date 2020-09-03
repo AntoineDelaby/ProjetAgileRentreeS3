@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class Start {
+public class main {
 
 	static Coordinate spawnT1 ;
 	static Coordinate spawnT2 ;
