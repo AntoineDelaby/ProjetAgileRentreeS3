@@ -2,7 +2,7 @@ package main;
 
 public class Archer extends Character{
 	
-	public static final int HP = 13;
+	public static final int HP = 11;
 	public static final int DMG = 6;
 	public static final boolean PASSIF = false;
 	
@@ -17,7 +17,6 @@ public class Archer extends Character{
 	
 
 	public void action() {
-		boolean res = false;
 		for (int i=0; i<Direction.values().length; i++) {
 			Plateau.reveal(super.team.getCoordinate().update(Direction.values()[i]));
 		}

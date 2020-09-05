@@ -16,12 +16,12 @@ public class Plateau {
 	
 	public Plateau (int length, int width) {
 
-		this.length=length;
-		this.width=width;
-		this.plateau=new Entity[this.length][this.width];
+		Plateau.length=length;
+		Plateau.width=width;
+		Plateau.plateau=new Entity[length][width];
 		aCombatre = null ;
-		this.spawnT1 = null ;
-		this.spawnT2 = null ;
+		Plateau.spawnT1 = null ;
+		Plateau.spawnT2 = null ;
 
 		Plateau.length=length;
 		Plateau.width=width;
@@ -39,16 +39,16 @@ public class Plateau {
 			}
 			tmp+="\n";
 			tmp+="|";
-			for (int j=0; j<this.width; j++) {
+			for (int j=0; j<Plateau.width; j++) {
 				if(plateau[i][j]==null||plateau[i][j].isHide()) {
-					if (new Coordinate(i, j).equals(this.spawnT1) || new Coordinate(i, j).equals(this.spawnT2)) {
+					if (new Coordinate(i, j).equals(Plateau.spawnT1) || new Coordinate(i, j).equals(Plateau.spawnT2)) {
 						tmp+=" X";
 					}else {
 						tmp+="  ";
 					}
 				}else{
 					tmp+=plateau[i][j].toString() ;
-					if (new Coordinate(i, j).equals(this.spawnT1) || new Coordinate(i, j).equals(this.spawnT2)) {
+					if (new Coordinate(i, j).equals(Plateau.spawnT1) || new Coordinate(i, j).equals(Plateau.spawnT2)) {
 						tmp+="X";
 					}else {
 						tmp+=" ";
@@ -58,7 +58,7 @@ public class Plateau {
 			}
 			tmp+="\n";
 		}
-		for (int i=0;i<this.length;i++) {
+		for (int i=0;i<Plateau.length;i++) {
 			tmp+="---";
 		}
 		return tmp+"-";
@@ -101,6 +101,7 @@ public class Plateau {
 	}
 	
 	public static Direction askMove(Team team) {
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		Direction dir = null;
 		do {

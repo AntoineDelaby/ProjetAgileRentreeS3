@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class main {
+public class Main {
 
 	static Coordinate spawnT1 ;
 	static Coordinate spawnT2 ;
@@ -18,15 +18,14 @@ public class main {
 	static final int RNG_MONSTER = 2;
 	
 	public static void main(String[] args) throws IOException {
-		
 		menu();
-
 	}
 	
 	public static void menu() throws IOException {
 		clear();
 		
 		System.out.println("     ~~ Donjon Baston ~~\n\n\nVeuillez choisir une option du menu : \n 1 - Start \n 2 - Regles \n 3 - Credits \n 4 - Quiter ");
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		String answer ; 
 		
@@ -67,6 +66,7 @@ public class main {
 		}
 		lecteur.close();
 		System.out.println("\n\n\n Appuyez sur M pour retourner au Menu !");
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		String answer = scan.next();
 		if (answer.equalsIgnoreCase("m")) {
@@ -79,6 +79,7 @@ public class main {
 	public static void credits() throws IOException {
 		clear();
 		System.out.println("Credits : \n Antoine DELABY \n Charles DESBIENS \n Ayoub LAHOUAICHRI \n Corentin LEBLEU \n Maxime SOUDANT \n\n\n Appuyez sur M pour retourner au Menu !");
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		String answer = scan.next();
 		if (answer.equalsIgnoreCase("m")) {
@@ -104,8 +105,8 @@ public class main {
 		creationDesTeam(team2);
 		
 		Plateau map = new Plateau(TAILLE_MAP,TAILLE_MAP);
-		map.setTeam(team1, 0, rand.nextInt(TAILLE_MAP));
-		map.setTeam(team2, TAILLE_MAP-1, rand.nextInt(TAILLE_MAP));
+		Plateau.setTeam(team1, 0, rand.nextInt(TAILLE_MAP));
+		Plateau.setTeam(team2, TAILLE_MAP-1, rand.nextInt(TAILLE_MAP));
 		spawnT1 = team1.getCoordinate() ;
 		spawnT2 = team2.getCoordinate() ;
 		
@@ -171,6 +172,7 @@ public class main {
 
 
 	public static void play(Plateau map, Team team) {
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		System.out.println("\n\n\nTeam "+team.toString()+" Choisissez votre action :\n");
 		System.out.println(" 1-Deplacement \n 2-Action ");
@@ -185,18 +187,16 @@ public class main {
 		
 		switch (answer) {
 		case "1":
-			team.getCoordinate().update(map.askMove(team));
+			team.getCoordinate().update(Plateau.askMove(team));
 			break;
 			
 		case "2":
-			
 			for(int i = 0; i < 3; i++) {
 				if (team.getCharacterList().get(i).isPassif()) {
 					System.out.println((i+1) + "-pouvoir passsif") ;
 				}else {
 					System.out.println((i+1) + "-pouvoir " + team.getCharacterList().get(i).getName());
 				}
-					
 			}
 			System.out.println("4-retour");
 			answer=scan.next();
@@ -244,6 +244,7 @@ public class main {
 					e.printStackTrace();
 				}
 			}
+			
 			if(Plateau.aCombatre instanceof Boss && team.getHealthPoint() > 0) {
 				team.setTresorRecupere(true);
 				System.out.println("Vous avez recupere le tresor !\nRevenez vite a  votre camp de base !");
@@ -253,10 +254,28 @@ public class main {
 					e.printStackTrace();
 				}
 			}
-			Plateau.aCombatre = null ;
+			
 			if (team.getHealthPoint()<=0) {
 				System.out.println("Aie, l'ennemie vous a tue !");
+				return ;
 			}
+			
+			if(Plateau.aCombatre.getObjet() != null) {
+				System.out.println("\nVous trouvez des morceaux d'equipement sur le monstre...");
+				System.out.print("Felicitation, ces objets augmente votre ");
+				if (Plateau.aCombatre.getObjet().isArme()) System.out.print("attaque ");
+				else System.out.print("defense ");
+				System.out.println("de "+Plateau.aCombatre.getObjet().getBoost()+" !");
+				
+				team.setItem(Plateau.aCombatre.getObjet());
+				try {
+					TimeUnit.SECONDS.sleep(5) ;
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			Plateau.aCombatre = null ;
 		}
 	}
 	
@@ -278,13 +297,13 @@ public class main {
 
 	public static void MonsterMap(Plateau map) {
 		Random rand = new Random();
-		map.setTeam(new Boss(), (TAILLE_MAP/3) +rand.nextInt(TAILLE_MAP/3), (TAILLE_MAP/3) +rand.nextInt(TAILLE_MAP/3));
+		Plateau.setTeam(new Boss(), (TAILLE_MAP/3) +rand.nextInt(TAILLE_MAP/3), (TAILLE_MAP/3) +rand.nextInt(TAILLE_MAP/3));
 		
 		for (int i = 0; i<TAILLE_MAP; i++) {
 			for (int j=0;j<TAILLE_MAP;j++) {
 				if (map.getCase(i, j)==null) {
 					if (rand.nextInt(RNG_MONSTER)==0) {
-						map.setTeam(new Monster(), i, j);
+						Plateau.setTeam(new Monster(), i, j);
 					}
 				}
 			}
@@ -292,6 +311,7 @@ public class main {
 	}
 	
 	public static void creationDesTeam(Team team) {
+		@SuppressWarnings("resource")
 		Scanner scan=new Scanner(System.in);
 		for (int i=0; i<3; i++) {
 			clear();

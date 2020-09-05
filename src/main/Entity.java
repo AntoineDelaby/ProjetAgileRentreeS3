@@ -5,12 +5,14 @@ public class Entity {
 	private int attackDamage;
 	
 	private boolean hide = false;
+	private Item objetTenue ;
 	
 	protected Coordinate coo;
 	
 	public Entity(int hp, int ad) {
 		this.healthPoint = hp;
 		this.attackDamage = ad;
+		this.setObjet(null) ;
 	}
 	
 	public String toString() {
@@ -45,6 +47,14 @@ public class Entity {
 
 	public void setHide(boolean hide) {
 		this.hide = hide;
+	}
+
+	public Item getObjet() {
+		return objetTenue;
+	}
+
+	public void setObjet(Item objet) {
+		this.objetTenue = objet;
 	}
 	
 	

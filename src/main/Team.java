@@ -63,6 +63,14 @@ public class Team extends Entity{
 		this.tresorRecupere = tresorRecupere;
 	}
 
+	public void setItem(Item item) {
+		if (item.isArme()) {
+			super.setAttackDamage(super.getAttackDamage()+item.getBoost());
+		}else {
+			this.max_hp = this.max_hp + item.getBoost() ;
+			this.heal(item.getBoost()) ;
+		}
+	}
 	
 	
 }
